@@ -1,5 +1,6 @@
 package stringAndLong;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -44,9 +45,9 @@ public class StringAnalysis {
         System.out.println(s7.hashCode());
         System.out.println(s8.hashCode());
         System.out.println("test".hashCode());
-        Scanner sc = new Scanner(System.in);
-        String s9 = sc.nextLine();
-        System.out.println(s9.hashCode());
+//        Scanner sc = new Scanner(System.in);
+//        String s9 = sc.nextLine();
+//        System.out.println(s9.hashCode());
 
         System.out.println(s5.equals(s6));
         System.out.println(s5.equals(s7));
@@ -68,6 +69,47 @@ public class StringAnalysis {
 //        for(int i = 0; i < 10; i++){
 //
 //        }
+
+
+
+        /*
+        * String str1= “abc”； 在编译期，JVM会去常量池来查找是否存在“abc”，如果不存在，
+        * 就在常量池中开辟一个空间来存储“abc”；如果存在，就不用新开辟空间。
+        * 然后在栈内存中开辟一个名字为str1的空间，来存储“abc”在常量池中的地址值。
+
+          String str2 = new String("abc") ;在编译阶段JVM先去常量池中查找是否存在“abc”，
+        * 如果过不存在，则在常量池中开辟一个空间存储“abc”。在运行时期，通过String类的构造器在堆内存中new了一个空间，然后将String池中的“abc”复制一份存放到该堆空间中，在栈中开辟名字为str2的空间，存放堆中new出来的这个String对象的地址值。
+          也就是说，前者在初始化的时候可能创建了一个对象，也可能一个对象也没有创建；后者因为new关键字，至少在内存中创建了一个对象，也有可能是两个对象。
+
+        * */
+
+        String s14 = new String("test");
+        String s17 = new String("test");
+        String s16 = "test";
+        String[] strings1 = {"test","test","ss"};
+
+        for (int i = 0; i < strings1.length; i++) {
+            System.out.println(strings1[i].hashCode());
+        }
+
+        System.out.println(s14 == strings1[0]);
+        System.out.println(s16 == strings1[0]);
+        System.out.println(s14 == s16);
+        System.out.println(strings1[0] == strings1[1]);
+
+        System.out.println(s14.equals(strings1[0]));
+        System.out.println(strings1[0].equals(strings1[1]));
+
+        System.out.println(s14 == s17);
+        System.out.println(s14.equals(s17));
+
+//        ArrayList<Integer> list;
+//        list.add(1);
     }
+
+//    public String replaceSpace(StringBuffer str) {
+//        String s = str.replace()
+//        return s;
+//    }
 
 }
